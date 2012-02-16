@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
-#include <string.h>
 #include <ctype.h>
 #include <math.h>
 
@@ -75,8 +74,8 @@ int check_possibilities(char *msg_ptr, char letters[], double freqs[]){
         i++;
     }
     for(i = 0; i < 26; i++){
-        printf("%d: ", i);
         int counts[26] = {0};
+        printf("%d: ", i);
         for(k = 0; k < length; k++){
             letter = text[k]-i;
             if(letter < 'a')
