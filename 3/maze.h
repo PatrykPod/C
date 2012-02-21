@@ -1,6 +1,10 @@
 /* Contains function related to the maze map of the game. */
 
 #ifndef MAZE_H
+
+#include <stdio.h>
+#include <stdlib.h>
+
 #define MAZE_H
 
 #define NORTH 0
@@ -14,14 +18,14 @@
 
 /* Incomplete type declaration. */
 typedef struct {
-    ...
+    char **maze;
 } maze_t;
 
 
 /* Incomplete declarations of the support functions. */
-maze_t* init_maze( ... );
-maze_t* read_maze( ... );
-void print_maze( ... );
-void cleanup_maze ( ... );
+maze_t* init_maze(int x, int y);
+maze_t* read_maze(char *mazefile);
+void print_maze(maze_t*, int, int);
+void cleanup_maze(maze_t*);
 
 #endif

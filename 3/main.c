@@ -9,10 +9,11 @@ int main (int argc, char **argv) {
     walker_t* walker;
     int count, dir;
 
-    /* check your args, read maze here, init walker.. */
-    /* ... */
-
-    int count = 0;
+    if (argc < 2){
+        printf("The filename of the maze should be passed as an argument");
+        return 0;
+    }
+    count = 0;
     while (count < MAX_STEPS) {
         count++;
         dir = my_super_maze_solver_function(maze, walker);

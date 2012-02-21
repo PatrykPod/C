@@ -3,15 +3,15 @@
 
 /* Incomplete type declaration. */
 typedef struct {
-    ...
+    int row, col;    
 } walker_t;
 
 
 /* Incomplete declarations of the support functions. */
-walker_t* init_walker(...);
-int move_walker( ... );
-int at_exit( ... );
-int check_move( ... );
-void cleanup_walker( ... );
+walker_t* init_walker();
+int move_walker(maze_t*, walker_t*, int);
+int at_exit(maze_t*, walker_t*);
+int check_move(  );
+void cleanup_walker(walker_t*);
 
 #endif

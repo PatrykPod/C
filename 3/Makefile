@@ -1,5 +1,3 @@
-// achter "`pwd`/$(PROGNAME)" moeten nog de argumenten die je programma nodig heeft om te runnen
-
 PROGNAME=mazesolver
 VERSION=1.0
 
