@@ -10,16 +10,21 @@ int main (int argc, char **argv) {
     int count, dir;
 
     if (argc < 2){
-        printf("The filename of the maze should be passed as an argument");
+        printf("The filename of the maze should be passed as an argument\n");
         return 0;
     }
+    char *bla= *(argv+1);
+    printf(bla);
+    printf("\n");
     count = 0;
+
+    //maze = read_maze(*(argv+1));
     while (count < MAX_STEPS) {
         count++;
         dir = my_super_maze_solver_function(maze, walker);
         move_walker(maze, walker, dir);
         print_maze(maze, walker->row, walker->col);
-        printf("%d\n", count);
+        //printf("%d\n", count);
         if (at_exit(maze, walker))
             break;
     }
