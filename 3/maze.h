@@ -18,6 +18,7 @@
 
 /* Incomplete type declaration. */
 typedef struct {
+    int rows, cols;
     char **maze;
 } maze_t;
 

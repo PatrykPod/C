@@ -3,6 +3,7 @@
 /* Incomplete definitions of the maze support function . */
 maze_t* init_maze(int x, int y) {
     maze_t *maze = malloc(sizeof(maze_t));
+    
     return maze;
 }
 
