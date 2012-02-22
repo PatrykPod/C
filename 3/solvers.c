@@ -20,9 +20,6 @@ int smart_random_solver_1(maze_t *maze, walker_t *walker, int last_dir){
              j++;
         }
     }
-    //for(i = 0; i < 3; i++)
-      //  printf("%d,", i);
-    //printf("\n");
     i = 3;
     for(; i > 0; i--){
         new_dir = rand() % i;
@@ -37,14 +34,12 @@ int smart_random_solver_1(maze_t *maze, walker_t *walker, int last_dir){
 
 int right_wall_solver(maze_t *maze, walker_t *walker, int last_dir){
     int new_dir = (last_dir+1)%4;
-    printf("%d,", new_dir);
     while(!move_walker(maze, walker, new_dir)){
         new_dir = (new_dir-1);
         if(new_dir < 0)
             new_dir += 4;
     }
     
-    printf("%d\n", new_dir);
     return new_dir;
 }
 

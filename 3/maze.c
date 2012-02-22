@@ -22,7 +22,6 @@ maze_t* read_maze(char *filename) {
         exit(0);
     }
     fscanf(file, "%d,%d\n", &rows, &cols);
-    printf("%d,%d\n", rows, cols);
     maze = init_maze(rows, cols);
     while ((c = getc(file)) != EOF){
         if (c == '\n'){
@@ -31,8 +30,8 @@ maze_t* read_maze(char *filename) {
             printf("\n");
             continue;
         }
+        printf("%c", c);
         *(*((maze->maze)+row)+col) = c;
-        printf("%c", *(*(maze->maze+row)+col));
         col++;
     }
         

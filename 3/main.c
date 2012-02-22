@@ -3,7 +3,7 @@
 #include "solvers.h"
 
 #define AMNT_SOLVERS 4
-#define MAX_STEPS 10000
+#define MAX_STEPS 1000000
 
 int main (int argc, char **argv) {
     maze_t* maze;
@@ -34,8 +34,10 @@ int main (int argc, char **argv) {
                 case 3:
                     dir = right_wall_solver(maze, walker, dir);break;
             }
-            print_maze(maze, walker->row, walker->col);
-            printf("%d\n", count);
+            if(count%1000 == 0){
+                print_maze(maze, walker->row, walker->col);
+                printf("%d\n", count);
+            }
             if (at_exit(maze, walker))
                 break;
         }
