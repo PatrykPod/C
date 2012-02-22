@@ -5,8 +5,8 @@
 /* Will contain the definitions of the maze solver functions. */
 int random_solver(maze_t *maze, walker_t *walker, int last_dir){
     int new_dir;
+    srand(SEED);
     while(!move_walker(maze, walker, new_dir)){
-        srand(SEED);
         new_dir = rand()%4;
     }
     return new_dir;

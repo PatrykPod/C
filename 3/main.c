@@ -51,7 +51,7 @@ int main (int argc, char **argv) {
     }
     
     if (count < MAX_STEPS)
-        printf("Found exit using right wall solver after %d steps\n", count);
+        printf("Found exit using left wall solver after %d steps\n", count);
 
 
 
