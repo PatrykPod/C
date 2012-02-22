@@ -1,6 +1,5 @@
 #ifndef WALKER_H
 #define WALKER_H
-
 /* Incomplete type declaration. */
 typedef struct {
     int row, col;    

@@ -4,7 +4,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
 #define MAZE_H
 
 #define NORTH 0

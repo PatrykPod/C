@@ -13,20 +13,46 @@ int main (int argc, char **argv) {
         printf("The filename of the maze should be passed as an argument\n");
         return 0;
     }
-    count = 0;
     maze = read_maze(*(argv+1));
     walker = init_walker(maze);
+    count = 0;
     while (count < MAX_STEPS) {
         count++;
-        dir = wall_solver(maze, walker, dir);
-        print_maze(maze, walker->row, walker->col);
+        dir = random_solver(maze, walker, dir);
+        print_maze(maze, walker);
         printf("%d\n", count);
         if (at_exit(maze, walker))
             break;
     }
-
     if (count < MAX_STEPS)
-        printf("Found exit after %d steps\n", count);
+        printf("Found exit using random solver after %d steps\n", count);
+    
+    walker = init_walker(maze);
+    count = 0;
+    while (count < MAX_STEPS) {
+        count++;
+        dir = right_wall_solver(maze, walker, dir);
+        print_maze(maze, walker);
+        printf("%d\n", count);
+        if (at_exit(maze, walker))
+            break;
+    }
+    
+    if (count < MAX_STEPS)
+        printf("Found exit using right wall solver after %d steps\n", count);
+
+    while (count < MAX_STEPS) {
+        count++;
+        dir = left_wall_solver(maze, walker, dir);
+        print_maze(maze, walker);
+        printf("%d\n", count);
+        if (at_exit(maze, walker))
+            break;
+    }
+    
+    if (count < MAX_STEPS)
+        printf("Found exit using right wall solver after %d steps\n", count);
+
 
 
     return 0;

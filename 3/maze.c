@@ -1,3 +1,4 @@
+#include "walker.h"
 #include "maze.h"
 
 /* Incomplete definitions of the maze support function . */
