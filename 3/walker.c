@@ -46,13 +46,13 @@ int move_walker(maze_t *maze, walker_t *walker, int dir) {
         return 0;
 
     if (dir == NORTH)
-        walker->col = -1;
+        walker->col--;
     else if (dir == EAST)
-        walker->row = 1;
+        walker->row++;
     else if (dir == SOUTH)
-        walker->col = 1;
+        walker->col++;
     else
-        walker->row = -1;
+        walker->row--;
     
     return 1;
 }
