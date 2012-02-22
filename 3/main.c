@@ -19,7 +19,7 @@ int main (int argc, char **argv) {
     while (count < MAX_STEPS) {
         count++;
         dir = random_solver(maze, walker, dir);
-        print_maze(maze, walker);
+        print_maze(maze, walker->row, walker->col);
         printf("%d\n", count);
         if (at_exit(maze, walker))
             break;
@@ -32,7 +32,7 @@ int main (int argc, char **argv) {
     while (count < MAX_STEPS) {
         count++;
         dir = right_wall_solver(maze, walker, dir);
-        print_maze(maze, walker);
+        print_maze(maze, walker->row, walker->col);
         printf("%d\n", count);
         if (at_exit(maze, walker))
             break;
@@ -44,7 +44,7 @@ int main (int argc, char **argv) {
     while (count < MAX_STEPS) {
         count++;
         dir = left_wall_solver(maze, walker, dir);
-        print_maze(maze, walker);
+        print_maze(maze, walker->row, walker->col);
         printf("%d\n", count);
         if (at_exit(maze, walker))
             break;
