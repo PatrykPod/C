@@ -5,10 +5,9 @@
 /* Will contain the definitions of the maze solver functions. */
 int random_solver(maze_t *maze, walker_t *walker, int last_dir){
     int new_dir;
-    srand(SEED);
-    while(!move_walker(maze, walker, new_dir)){
+    do{
         new_dir = rand()%4;
-    }
+    } while(!move_walker(maze, walker, new_dir));
     return new_dir;
 }
 
@@ -21,13 +20,15 @@ int smart_random_solver_1(maze_t *maze, walker_t *walker, int last_dir){
              j++;
         }
     }
+    //for(i = 0; i < 3; i++)
+      //  printf("%d,", i);
+    //printf("\n");
     i = 3;
     for(; i > 0; i--){
-        srand(SEED);
         new_dir = rand() % i;
         if(move_walker(maze, walker, options[new_dir]))
             return options[new_dir];
-        options[new_dir]=options[i];
+        options[new_dir]=options[i-1];
     }
     new_dir=(last_dir+2)%4;
     move_walker(maze, walker, new_dir);
