@@ -12,7 +12,7 @@ int check_move(maze_t *maze, walker_t *walker, int dir) {
         ydiff = 1;
     else
         xdiff = -1;
-    if (*(*(maze->maze + walker->row + xdiff) + walker->col + ydiff) == WALL)
+    if (*(*(maze->maze + walker->row + ydiff) + walker->col + xdiff) == WALL)
         return 0;
     return 1;
 }
@@ -46,13 +46,13 @@ int move_walker(maze_t *maze, walker_t *walker, int dir) {
         return 0;
 
     if (dir == NORTH)
-        walker->col--;
-    else if (dir == EAST)
-        walker->row++;
-    else if (dir == SOUTH)
-        walker->col++;
-    else
         walker->row--;
+    else if (dir == EAST)
+        walker->col++;
+    else if (dir == SOUTH)
+        walker->row++;
+    else
+        walker->col--;
     
     return 1;
 }

@@ -3,14 +3,14 @@
 #include "solvers.h"
 
 #define AMNT_SOLVERS 4
-#define MAX_STEPS 1000
+#define MAX_STEPS 10000
 
 int main (int argc, char **argv) {
     maze_t* maze;
     char *solver[] = {"random solver", "smart random solver", "left wall solver",
         "right wall solver"};
     walker_t* walker;
-    int i = 0, count, dir = NORTH;
+    int i = 0, count, dir;
 
     if (argc < 2){
         printf("The filename of the maze should be passed as an argument\n");
@@ -18,6 +18,7 @@ int main (int argc, char **argv) {
     }
     for(; i < AMNT_SOLVERS; i++){
         srand(SEED);
+        dir = NORTH;
         maze = read_maze(*(argv+1));
         walker = init_walker(maze);
         count = 0;
