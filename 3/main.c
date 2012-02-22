@@ -2,7 +2,7 @@
 #include "walker.h"
 #include "solvers.h"
 
-#define MAX_STEPS 4
+#define MAX_STEPS 1000
 
 int main (int argc, char **argv) {
     maze_t* maze;
@@ -18,10 +18,9 @@ int main (int argc, char **argv) {
     walker = init_walker(maze);
     while (count < MAX_STEPS) {
         count++;
-        dir = my_super_maze_solver_function(maze, walker);
-        move_walker(maze, walker, dir);
+        dir = wall_solver(maze, walker, dir);
         print_maze(maze, walker->row, walker->col);
-        //printf("%d\n", count);
+        printf("%d\n", count);
         if (at_exit(maze, walker))
             break;
     }
