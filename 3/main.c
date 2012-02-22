@@ -14,11 +14,9 @@ int main (int argc, char **argv) {
         return 0;
     }
     char *bla= *(argv+1);
-    printf(bla);
-    printf("\n");
+    printf("%s\n", bla);
     count = 0;
-
-    //maze = read_maze(*(argv+1));
+    maze = read_maze(*(argv+1));
     while (count < MAX_STEPS) {
         count++;
         dir = my_super_maze_solver_function(maze, walker);

@@ -65,6 +65,7 @@ int main(int argc, char *argv[]){
  * This function opens a file and returns the pointer to the file.
  */
 FILE* open_file(char *filename){
+    printf("%s", filename);
     FILE *file;
     if ((file = fopen(filename, "r")) == NULL){
         perror("fopen");
