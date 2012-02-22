@@ -13,8 +13,6 @@ int main (int argc, char **argv) {
         printf("The filename of the maze should be passed as an argument\n");
         return 0;
     }
-    char *bla= *(argv+1);
-    printf("%s\n", bla);
     count = 0;
     maze = read_maze(*(argv+1));
     walker = init_walker(maze);

@@ -18,6 +18,11 @@ int check_move(maze_t *maze, walker_t *walker, int dir) {
 }
 
 int at_exit(maze_t *maze, walker_t *walker) {
+    if(*(*(maze->maze + walker->row)+walker->col) == EXIT){
+        cleanup_walker(walker);
+        cleanup_maze(maze);
+        return 1;
+    }
     return 0;
 }
 
