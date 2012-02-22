@@ -11,7 +11,7 @@ typedef struct {
 walker_t* init_walker(maze_t*);
 int move_walker(maze_t*, walker_t*, int);
 int at_exit(maze_t*, walker_t*);
-int check_move(  );
+int check_move(maze_t*, walker_t*, int);
 void cleanup_walker(walker_t*);
 
 #endif

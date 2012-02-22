@@ -7,7 +7,7 @@
 int main (int argc, char **argv) {
     maze_t* maze;
     walker_t* walker;
-    int count, dir;
+    int count, dir = NORTH;
 
     if (argc < 2){
         printf("The filename of the maze should be passed as an argument\n");
