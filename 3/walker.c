@@ -15,9 +15,6 @@ int check_move(maze_t *maze, walker_t *walker, int dir) {
     if (*(*(maze->maze + walker->row + xdiff) + walker->col + ydiff) == WALL)
         return 0;
     return 1;
-
-
-    return 0;
 }
 
 int at_exit(maze_t *maze, walker_t *walker) {
