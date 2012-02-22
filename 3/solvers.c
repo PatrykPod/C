@@ -14,7 +14,7 @@ int random_solver(maze_t *maze, walker_t *walker, int last_dir){
 
 
 int smart_random_solver_1(maze_t *maze, walker_t *walker, int last_dir){
-    int j = 0; i = NORTH , new_dir, options[3];
+    int j = 0, i = NORTH , new_dir, options[3];
     for(; i <= WEST; i++){
         if(i != (last_dir+2)%4){
              options[j] = i;
@@ -25,12 +25,12 @@ int smart_random_solver_1(maze_t *maze, walker_t *walker, int last_dir){
     for(; i > 0; i--){
         srand(SEED);
         new_dir = rand() % i;
-        if(move_walker(options[new_dir]))
+        if(move_walker(maze, walker, options[new_dir]))
             return options[new_dir];
         options[new_dir]=options[i];
     }
     new_dir=(last_dir+2)%4;
-    move_walker(new_dir);
+    move_walker(maze, walker, new_dir);
     return new_dir;
 }
 
