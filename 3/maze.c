@@ -6,7 +6,7 @@ maze_t* init_maze(int rows, int cols) {
     maze_t *maze = malloc(sizeof(maze_t));
     maze->rows = rows;
     maze->cols = cols;
-    maze->maze = malloc(rows * sizeof(maze));
+    maze->maze = malloc(rows * sizeof(char*));
     for (; i < rows; i++)
         *(maze->maze + i) = malloc(cols * sizeof(char));
     return maze;
@@ -27,6 +27,7 @@ maze_t* read_maze(char *filename) {
     while ((c = getc(file)) != EOF){
         if (c == '\n'){
             row++;
+            col = 0;
             printf("\n");
             continue;
         }
@@ -39,6 +40,16 @@ maze_t* read_maze(char *filename) {
 }
 
 void print_maze(maze_t *maze, int row, int col) {
+    int i = 0, j;
+    for(; i < maze->rows; i++){
+        for(j = 0; j < maze->cols; j++){
+            if(i == row && j == col)
+                printf("X");
+            else
+                printf("%c", *(*(maze->maze+i)+j));
+        }
+        printf("\n");
+    }
 }
 
 void cleanup_maze (maze_t *maze) {

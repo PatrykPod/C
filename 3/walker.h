@@ -8,7 +8,7 @@ typedef struct {
 
 
 /* Incomplete declarations of the support functions. */
-walker_t* init_walker();
+walker_t* init_walker(maze_t*);
 int move_walker(maze_t*, walker_t*, int);
 int at_exit(maze_t*, walker_t*);
 int check_move(  );
