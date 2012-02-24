@@ -58,5 +58,5 @@ int move_walker(maze_t *maze, walker_t *walker, int dir) {
 }
 
 void cleanup_walker(walker_t *walker) {
-    
+    free(walker);
 }
