@@ -7,7 +7,7 @@
  * put in an array and all of them are tried in a random way.
  */
 int random_solver(maze_t *maze, walker_t *walker, int last_dir){
-    int new_dir, i = NORTH, options[] = {NORTH, EAST, WEST, SOUTH};
+    int new_dir, i = NORTH, options[] = {NORTH, EAST, SOUTH, WEST};
     i = 4;
     for(; i > 1; i--){
         new_dir = rand() % i;
@@ -16,7 +16,7 @@ int random_solver(maze_t *maze, walker_t *walker, int last_dir){
         options[new_dir]=options[i-1];
     }
     move_walker(maze, walker, options[0]);
-    return options[new_dir];
+    return options[0];
 }
 
 /*
@@ -34,7 +34,7 @@ int smart_random_solver_1(maze_t *maze, walker_t *walker, int last_dir){
         options[new_dir]=options[i-1];
     }
     if(move_walker(maze, walker, options[0]))
-        return options[new_dir];
+        return options[0];
     new_dir=(last_dir+2)%4;
     move_walker(maze, walker, new_dir);
     return new_dir;
