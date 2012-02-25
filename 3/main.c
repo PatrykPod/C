@@ -1,3 +1,15 @@
+/*
+ * File main.c
+ * 
+ * This file contains the main function, it handles input
+ * and calls the other functions.
+ * 
+ * Author: Jelte Fennema
+ * Studentnumber: 10183159
+ * Date: 25-02-2012
+ *
+ */
+
 #include "maze.h"
 #include "walker.h"
 #include "solvers.h"
@@ -7,7 +19,7 @@
  
 /*
  * In this function the input gets checked and the other functions are called
- * in the correct order
+ * in the correct order.
  */
 int main (int argc, char **argv) {
     maze_t* maze;

@@ -1,4 +1,15 @@
-/* Contains function related to the maze map of the game. */
+
+/*
+ * File maze.h
+ * 
+ * This file contains declarations for the functions in maze.c
+ * and the maze_t type declaration.
+ * 
+ * Author: Jelte Fennema
+ * Studentnumber: 10183159
+ * Date: 25-02-2012
+ *
+ */
 
 #ifndef MAZE_H
 
@@ -15,14 +26,12 @@
 #define START   'S'
 #define EXIT    'E'
 
-/* Incomplete type declaration. */
 typedef struct {
     int rows, cols;
     char **maze;
 } maze_t;
 
 
-/* Incomplete declarations of the support functions. */
 maze_t* init_maze(int x, int y);
 maze_t* read_maze(char *mazefile);
 void print_maze(maze_t*, int, int);

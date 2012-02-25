@@ -1,3 +1,14 @@
+
+/*
+ * File maze.c
+ * 
+ * This file contains the functions that make, print or delete mazes.
+ * 
+ * Author: Jelte Fennema
+ * Studentnumber: 10183159
+ * Date: 25-02-2012
+ *
+ */
 #include "maze.h"
 
 /* 

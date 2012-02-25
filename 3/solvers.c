@@ -1,3 +1,15 @@
+/*
+ * File solvers.c
+ * 
+ * This file contains the functions that describe the solving algorithms
+ * the walker is using.
+ * 
+ * Author: Jelte Fennema
+ * Studentnumber: 10183159
+ * Date: 25-02-2012
+ *
+ */
+
 #include "maze.h"
 #include "walker.h"
 #include "solvers.h"

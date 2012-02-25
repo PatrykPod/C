@@ -1,3 +1,15 @@
+
+/*
+ * File solvers.c
+ * 
+ * This file contains the functions that position the walker.
+ * 
+ * Author: Jelte Fennema
+ * Studentnumber: 10183159
+ * Date: 25-02-2012
+ *
+ */
+
 #include "maze.h"
 #include "walker.h"
 
