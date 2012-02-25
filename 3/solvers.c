@@ -18,16 +18,18 @@
  * This solver is entirely random, all the four directions are 
  * put in an array and all of them are tried in a random way.
  */
-int random_solver(maze_t *maze, walker_t *walker, int last_dir){
+int random_solver(maze_t *maze, walker_t *walker){
     int new_dir, i = NORTH, options[] = {NORTH, EAST, SOUTH, WEST};
     i = 4;
     for(; i > 1; i--){
         new_dir = rand() % i;
-        if(move_walker(maze, walker, options[new_dir]))
+        if(move_walker(maze, walker, options[new_dir])){
+            free(options);
             return options[new_dir];
         options[new_dir]=options[i-1];
     }
     move_walker(maze, walker, options[0]);
+    free(options);
     return options[0];
 }
 
@@ -36,19 +38,24 @@ int random_solver(maze_t *maze, walker_t *walker, int last_dir){
  * it only goes the way it came from if it has no other choice.
  */
 int smart_random_solver_1(maze_t *maze, walker_t *walker, int last_dir){
-    int j = 0, i = NORTH , new_dir, options[] = {NORTH, EAST, SOUTH, WEST};
+    int i = NORTH , new_dir, options[] = {NORTH, EAST, SOUTH, WEST};
     options[(last_dir+2)%4] = WEST;
     i = 3;
     for(; i > 1; i--){
         new_dir = rand() % i;
-        if(move_walker(maze, walker, options[new_dir]))
+        if(move_walker(maze, walker, options[new_dir])){
+            free(options);
             return options[new_dir];
+        }
         options[new_dir]=options[i-1];
     }
-    if(move_walker(maze, walker, options[0]))
+    if(move_walker(maze, walker, options[0])){
+        free(options);
         return options[0];
+    }
     new_dir=(last_dir+2)%4;
     move_walker(maze, walker, new_dir);
+    free(options);
     return new_dir;
 }
 

@@ -58,7 +58,7 @@ int main (int argc, char **argv) {
             count++;
             switch(i){
                 case 0:
-                    dir = random_solver(maze, walker, dir);break;
+                    dir = random_solver(maze, walker);break;
                 case 1:
                     dir = smart_random_solver_1(maze, walker, dir);break;
                 case 2:
@@ -79,7 +79,7 @@ int main (int argc, char **argv) {
         printf("Press key to continue\n");
         getchar();
     }
-
+    free(solver);
     return 0;
 
 }

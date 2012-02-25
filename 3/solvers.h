@@ -15,7 +15,7 @@
 #include <time.h>
 #define SEED (unsigned) time(NULL)
 
-int random_solver(maze_t*, walker_t*, int);
+int random_solver(maze_t*, walker_t*);
 int left_wall_solver(maze_t*, walker_t*, int);
 int right_wall_solver(maze_t*, walker_t*, int);
 int smart_random_solver_1(maze_t*, walker_t*, int);
