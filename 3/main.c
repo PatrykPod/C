@@ -79,7 +79,6 @@ int main (int argc, char **argv) {
         printf("Press key to continue\n");
         getchar();
     }
-    free(solver);
     return 0;
 
 }
