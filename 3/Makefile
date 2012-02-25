@@ -4,7 +4,7 @@ VERSION=1.0
 MKDIR=mkdir
 PACK=tar -jcvf
 CC=gcc
-CFLAGS=-Wall -pedantic -std=c99 -lm
+CFLAGS=-Wall -Wextra -Werror -pedantic -std=c99 -lm
 CP=cp
 RM=rm -rf
 OFILES=$(subst .c,.o,$(wildcard *.c))
