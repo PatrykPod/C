@@ -1,6 +1,3 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-int main(void){
-    printf("bla");
-}
+#include "loods3.h"
