@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "loods1.h"
 
 loods1 *maak_loods(void){
@@ -18,7 +19,8 @@ int leeg(loods1 *loods){
 
 void opslaan(loods1 *loods, char *thee){
     element *new = malloc(sizeof(element));
-    new->content = thee;
+    new->content = malloc(strlen(thee) * sizeof(char));
+    strcpy(new->content, thee);
     new->next = loods->first;
     loods->first = new;
 }
