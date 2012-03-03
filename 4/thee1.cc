@@ -4,6 +4,7 @@
 #include "loods1.h"
 #define BUFFERSIZE 200
 
+
 int main(void){
     char input[BUFFERSIZE], *command, *theesoort;
     loods1 *loods = maak_loods();
