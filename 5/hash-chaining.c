@@ -24,19 +24,14 @@ hash_t* hash_table_new(unsigned int size){
 }
 
 void hash_table_destroy(hash_t* table){
-    for (int i = 0; i < table->size; i++){
-        key *temp = *(table->bucket + i);
-        while (temp->next != NULL){
-            printf("bla\n");
-            temp = *(table->bucket + i);
-            printf("blou\n");
-            *(table->bucket + i) = temp->next; 
-            printf("blow\n");
+    for (unsigned int i = 0; i < table->size; i++){
+        key *temp = table->bucket[i];
+        while (table->bucket[i] != NULL){
+            temp = table->bucket[i];
+            table->bucket[i] = temp->next; 
             free(temp->word);
-            printf("blaaa\n");
             free(temp);
         }
-        free(*(table->bucket + i));
     }
     free(table);
 }
