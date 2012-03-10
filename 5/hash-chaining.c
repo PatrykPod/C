@@ -9,7 +9,7 @@ typedef struct key {
 }key;
 
 struct hash_t {
-    key ** bucket;
+    key **bucket;
     unsigned int size, fill;
 };
 
@@ -24,7 +24,7 @@ hash_t* hash_table_new(unsigned int size){
 }
 
 void hash_table_destroy(hash_t* table){
-    for (unsigned int i = 0; i < table->size; i++){
+    for (int i = 0; i < table->size; i++){
         key *temp = *(table->bucket + i);
         while (temp->next != NULL){
             printf("bla\n");
@@ -44,36 +44,29 @@ void hash_table_destroy(hash_t* table){
 unsigned int hash_function(char *word, int size){
     unsigned int hash = 0;
     for (; *word; word++){
-        hash += *word;
+        hash = hash + *word;
     }
     return hash % size;
 }
 
 void hash_table_insert(hash_t* table, void* word, void* value){
     unsigned int hash = hash_function(word, table->size);
-    key *bucket = *(table->bucket + hash);
+    key *bucket = table->bucket[hash];
     key *newkey = malloc(sizeof(key));
     newkey->word = word;
-    newkey->next = NULL;
-    if (bucket == NULL){
-        *(table->bucket + hash) = newkey;
-    }
-    else{
-        while(bucket->next != NULL){
-            bucket = bucket->next;
-        }
-        bucket->next = newkey;
-    }
+    newkey->next = bucket;
+    table->bucket[hash] = newkey;
+
     table->fill++;
 
 }
 
 void* hash_table_lookup(hash_t* table, void* word){
     unsigned int hash = hash_function(word, table->size);
-    key *bucket = *(table->bucket + hash);
+    key *bucket = table->bucket[hash];
     while(bucket != NULL){
-        if (strcmp(bucket->word, word)){
-            return word;
+        if (!strcmp(bucket->word, word)){
+            return table;
         }
         bucket = bucket->next;
     }

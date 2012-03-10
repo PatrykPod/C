@@ -101,7 +101,7 @@ int main(int argc, char *argv[]) {
         if (!contains_numbers(lowercase) &&
                 !hash_table_lookup(table, lowercase)) {
             /* No printing when measuring execution time. */
-            //printf("Not found: [%s]\n", lowercase);
+          //  printf("Not found: [%s]\n", lowercase);
             typo++;
         }
         count++;
