@@ -1,0 +1,4 @@
+1.1 een stack
+2.1 een queue
+2.3 als loods 2 leeg is loods 1 naar loods 2 verplaatsen en anders uit loods 2 halen
+2.5 een queue O(n)
