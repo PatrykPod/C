@@ -1,4 +1,4 @@
-PROGNAME=mazesolver
+PROGNAME=mazetreesolver
 VERSION=1.0
 
 MKDIR=mkdir
@@ -19,7 +19,7 @@ clean:
 	$(RM) *.o $(PROGNAME) $(PROGNAME)-$(VERSION).tbz
 
 run: $(PROGNAME)
-	`pwd`/$(PROGNAME) maze.txt
+	`pwd`/$(PROGNAME) map1.txt
 
 tarball: $(PROGNAME)
 	$(MAKE) clean
